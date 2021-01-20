@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tu peso en un lugar donde pesas menos</title>
+    <title>Tu peso en OTRO PLANETA</title>
     <style type = "text/css">
       body
       {
-      background-color: Blue;
-      color: Cyan;
-      font-family: Helvetica;
+        background-color: Blue;
+        color: Cyan;
+        font-family: Helvetica;
+      }
+      h1
+      {
+        color: Lime;
       }
     </style>
   </head>
@@ -25,9 +29,20 @@
       if (planeta == 1)
       {
         peso_final = peso * g_marte / g_tierra;
+        nombre = "Martes";
+      }
+      else if (planeta == 2)
+      {
+        peso_final = peso * g_jupiter / g_tierra;
+        nombre = "Jupiter";
+      }
+      else
+      {
+        peso_final = 10000000;
+        nombre = "KRYPTON";
       }
       peso_final = peso_final.toFixed(2);
-      document.write("Tu peso en Marte es: <strong> " + peso_final + " Kilos</strong>");
+      document.write("Tu peso en " + nombre + " es: <strong> " + peso_final + " Kilos</strong>");
     </script>
   </body>
 </html>
