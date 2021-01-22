@@ -7,7 +7,7 @@
       {
         background-color: Blue;
         color: Cyan;
-        font-family: Helvetica;    
+        font-family: Helvetica;
       }
       h1
       {
@@ -18,43 +18,44 @@
   <body>
     <h1>Tu peso en otro planeta</h1>
     <p>En la tierra pesas distinto que en Marte o Jupiter</p>
-    <script type = "text/javascript">
-      var usuario = prompt("Cual es tu peso?");
-      var planeta = parseInt(prompt("Elige tu planeta\n1) Marte\n2) Jupiter\n3) Luna (No es un planeta)\n4) Sol (Tampoco es un planeta)"));
-      var peso = parseInt(usuario);
-      var g_tierra = 9.8;
-      var g_marte = 3.7;
-      var g_jupiter = 24.8;
-      var g_luna = 1.62;
-      var g_sol = 274;
-      var peso_final;
-      if (planeta == 1)
-      {
-        peso_final = peso * g_marte / g_tierra;
-        nombre = "Marte";
-      }
-      else if (planeta == 2)
-      {
-        peso_final = peso * g_jupiter / g_tierra;
-        nombre = "Jupiter";
-      }
-      else if (planeta == 3)
-      {
-        peso_final = peso * g_luna / g_tierra;
-        nombre = "La Luna";
-      }
-      else if (planeta == 4)
-      {
-        peso_final = peso * g_sol / g_tierra;
-        nombre = "El Sol";
-      }
-      else
-      {
-        peso_final = 10000000;
-        nombre = "KRYPTON";
-      }
-      peso_final = peso_final.toFixed(2);
-      document.write("Tu peso en <strong>" + nombre + "</strong> es: <strong> " + peso_final + " Kilos</strong>");
-   </script>
+    
   </body>
+  <script type = "text/javascript">
+    var usuario = prompt("Cual es tu peso?");
+    var planeta = parseInt(prompt("Elige tu planeta\n1) Marte\n2) Jupiter\n3) Luna (No es un planeta)\n4) Sol (Tampoco es un planeta)"));
+    var peso = parseInt(usuario);
+    var g_tierra = 9.8;
+    var g_marte = 3.7;
+    var g_jupiter = 24.8;
+    var g_luna = 1.62;
+    var g_sol = 274;
+    var peso_final;
+    if (planeta == 1)
+    {
+      peso_final = peso * g_marte / g_tierra;
+      nombre = "Marte";
+    }
+    else if (planeta == 2)
+    {
+      peso_final = peso * g_jupiter / g_tierra;
+      nombre = "Jupiter";
+    }
+    else if (planeta == 3)
+    {
+      peso_final = peso * g_luna / g_tierra;
+      nombre = "La Luna";
+    }
+    else if (planeta == 4)
+    {
+      peso_final = peso * g_sol / g_tierra;
+      nombre = "El Sol";
+    }
+    else
+    {
+      peso_final = 10000000;
+      nombre = "KRYPTON";
+    }
+    peso_final = peso_final.toFixed(2);
+    document.write("Tu peso en <strong>" + nombre + "</strong> es: <strong> " + peso_final + " Kilos</strong>");
+ </script>
 </html>
