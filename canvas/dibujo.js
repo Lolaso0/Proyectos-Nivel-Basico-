@@ -1,16 +1,15 @@
 var d = document.getElementById("dibujito");
 var lienzo = d.getContext("2d");
 
-lienzo.beginPath();
-lienzo.strokeStyle = "green";
-lienzo.moveTo(50, 10);
-lienzo.lineTo(250,2);
-lienzo.stroke();
-lienzo.closePath();
+dibujarLinea("#AAF", 0, 0, 10, 300);
 
-lienzo.beginPath();
-lienzo.strokeStyle = "red";
-lienzo.moveTo(180, 10);
-lienzo.lineTo(290,200);
-lienzo.stroke();
-lienzo.closePath();
+
+function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal)
+{
+  lienzo.beginPath();
+  lienzo.strokeStyle = color;
+  lienzo.moveTo(xinicial, yinicial);
+  lienzo.lineTo(xfinal, yfinal);
+  lienzo.stroke();
+  lienzo.closePath();
+}
