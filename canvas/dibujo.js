@@ -1,9 +1,13 @@
-var pedido = parseInt(prompt("Cuantas Lineas Quieres?\n(Maximo 30)"));
+var texto = document.getElementById("texto_lineas");
+var boton = document.getElementById("botoncito");
+boton.addEventListener("click", dibujoPorClick);
+
+
 var d = document.getElementById("dibujito");
 var lienzo = d.getContext("2d");
 var lineas = 30;
 var yi, xf;
-var colorcito = parseInt(prompt("Elije Tu Color\n1) Rojo\n2) Azul \n3) Verde\n4) Dorado"));
+var colorcito = ("Elije Tu Color\n1) Rojo\n2) Azul \n3) Verde\n4) Dorado");
 if(colorcito == 1)
 {
   colorcito = "red"
@@ -25,7 +29,7 @@ else
   colorcito = "white"
 }
 
-for(l = 0; l < pedido; l=l+1)
+for(l = 0; l < 30; l=l+1)
 {
   yi = 10 * l;
   xf = 10 * (l + 1);
@@ -42,7 +46,6 @@ dibujarLinea(colorcito, 1, 299, 299, 299 );
 dibujarLinea(colorcito, 299, 1, 299, 299);
 dibujarLinea(colorcito, 1, 1, 300, 1);
 
-
 function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal)
 {
   lienzo.beginPath();
@@ -51,4 +54,9 @@ function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal)
   lienzo.lineTo(xfinal, yfinal);
   lienzo.stroke();
   lienzo.closePath();
+}
+
+function dibujoPorClick()
+{
+  var xxx = parseInt(texto.value);
 }
