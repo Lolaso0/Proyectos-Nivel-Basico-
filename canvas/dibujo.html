@@ -6,25 +6,43 @@
     <style type="text/css">
       body
       {
-        background-color: white;
-        color: BLack;
-        font-style: Helvetica;
+        background-color: #00aae4;
+        color: black;
+        font-family: Helvetica;
       }
-      dibujito
+      p
+      {
+        background-color: #00aae4;
+        color: black;
+      }
+      canvas
       {
         background-color: white;
+      }
+      h1
+      {
+        color:  #77DD77;
       }
     </style>
   </head>
   <body>
     <h1>Dibujo en Canvas</h1>
     <p>
-      Cuantas Lineas Quieres?
+      Puedes escribir las lineas que quieras, unas sobre otras! Prueba distintas combinaciones de Colores y Lineas para <br />
+      Crear un dibujo Unico!!!
+    </p>
+    <br/>
+    <p>
+      Cuantas Lineas Quieres?<br /><br />
       <input type="text" id="texto_lineas" />
+      <br /> <br />
+      Que Color Quieres? 1) Rojo | 2) Azul | 3) Verde | 4) Dorado | 5) Negro | 6+) Rosa <br /> <br />
+      <input type="text" id="texto_color" />
+      <br/> <br />
       <input type="button" value="A darle!" id="botoncito" />
     </p>
     <canvas width="300" height="300" id="dibujito"></canvas>
-    <p>Asi queda tu dibujo</p>
+    <p>Asi queda tu dibujo!!</p>
     <script src="dibujo.js"></script>
   </body>
 </html>
