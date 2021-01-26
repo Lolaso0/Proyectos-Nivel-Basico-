@@ -12,14 +12,14 @@ document.addEventListener("mousemove", moverMouse);
 var cuadrito = document.getElementById("area_de_dibujo");
 var papel = cuadrito.getContext("2d");
 console.log(teclas);
-var x = 150;
-var y = 150;
+var xt = 150;
+var yt = 150;
 var estado;
 var inicio = 0;
-var colorcito = "blue";
+var c = document.getElementById("cajaColor");
 var movimiento = 5;
 
-dibujarLinea(colorcito,x-1 ,y-1, x+1, y+1, papel);
+console.log(c.value);
 
 function presionarMouse(evento)
 {
@@ -27,32 +27,27 @@ function presionarMouse(evento)
   y = evento.layerY;
   estado = 1;
 }
-
 function soltarMouse(evento)
 {
   x = evento.layerX;
   y = evento.layerY;
   estado = 0;
-  dibujarLinea(colorcito, x, y, x, y ,papel);
 }
 
 function moverMouse(evento)
 {
-
-  x = evento.layerX;
-  y = evento.layerY;
   if(estado == 1)
   {
-    dibujarLinea(colorcito, x , y, x + movimiento, y + movimiento, papel);
-    x = movimiento + x + 1
-    y = movimiento + y + 1
+    dibujarLinea(x, y, evento.layerX, evento.layerY, papel);
+    x = evento.layerX;
+    y = evento.layerY;
   }
 }
 
-function dibujarLinea(colorcito, xi, yi, xf, yf, lienzo)
+function dibujarLinea(xi, yi, xf, yf, lienzo)
 {
   lienzo.beginPath();
-  lienzo.strokeStyle = colorcito;
+  lienzo.strokeStyle = c.value;
   lienzo.lineWidth = 3;
   lienzo.moveTo(xi,yi);
   lienzo.lineTo(xf,yf);
@@ -67,23 +62,23 @@ function dibujarTeclado(evento)
   switch (evento.keyCode)
   {
     case teclas.UP:
-      dibujarLinea(colorcito, x, y, x, y - movimiento, papel);
-      y = y - movimiento;
+      dibujarLinea(xt, yt, xt, yt - movimiento, papel);
+      yt = yt - movimiento;
     break;
 
     case teclas.DOWN:
-      dibujarLinea(colorcito, x, y, x, y + movimiento, papel);
-      y = y + movimiento;
+      dibujarLinea(xt, yt, xt, yt + movimiento, papel);
+      yt = yt + movimiento;
     break;
 
     case teclas.LEFT:
-      dibujarLinea(colorcito, x, y, x - movimiento, y, papel);
-      x = x - movimiento;
+      dibujarLinea(xt, yt, xt - movimiento, yt, papel);
+      xt = xt - movimiento;
     break;
 
     case teclas.RIGHT:
-      dibujarLinea(colorcito, x, y, x + movimiento, y, papel);
-      x = x + movimiento;
+      dibujarLinea(xt, yt, xt + movimiento, yt, papel);
+      xt = xt + movimiento;
     break;
 
     default:

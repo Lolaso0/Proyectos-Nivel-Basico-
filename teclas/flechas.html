@@ -14,10 +14,23 @@
       {
         background-color: white;
       }
+      p
+      {
+        color: Black;
+      }
     </style>
   </head>
   <body>
     <h1><strong>Dibujar con el teclado!</strong></h1>
+    <p>
+      Selecciona Tu Color
+      <input type="color" id="cajaColor" />
+    </p>
+    <p>
+      Selecciona el tamaño de la Caja
+      <p> 1) Ancho <input type="text" widht="32" id="cajaLienzo" /> </p>
+
+    </p>
     <canvas width="300" height="300" id="area_de_dibujo"></canvas>
     <p>Mueve las flechas del teclado para dibujar</p>
     <script src="eventos.js"></script>
