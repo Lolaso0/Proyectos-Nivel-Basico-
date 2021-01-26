@@ -23,15 +23,17 @@
   <body>
     <h1><strong>Dibujar con el teclado!</strong></h1>
     <p>
+      Selecciona el tamaño de la Caja
+      <p> 1) Ancho <input type="text"  id="cajaLienzoAncho" />
+                    <br /> <br />
+          2) Alto  <input type="text"  id="cajaLienzoAlto" />
+                    <input type="button" value= "Cambiar" id="botonTamano" />
+    </p>
+    <p>
       Selecciona Tu Color
       <input type="color" id="cajaColor" />
     </p>
-    <p>
-      Selecciona el tamaño de la Caja
-      <p> 1) Ancho <input type="text" widht="32" id="cajaLienzo" /> </p>
-
-    </p>
-    <canvas width="300" height="300" id="area_de_dibujo"></canvas>
+    <canvas width= "500" height= "500" id="area_de_dibujo"></canvas>
     <p>Mueve las flechas del teclado para dibujar</p>
     <script src="eventos.js"></script>
   </body>

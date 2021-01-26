@@ -4,6 +4,10 @@ var teclas = {
   LEFT: 37,
   RIGHT: 39
 };
+var anchito = document.getElementById("cajaLienzoAncho");
+var altito = document.getElementById("cajaLienzoAlto");
+var enviarAnchito = document.getElementById("botonTamano");
+enviarAnchito.addEventListener("click", enviarTamano);
 
 document.addEventListener("keydown", dibujarTeclado);
 document.addEventListener("mousedown", presionarMouse);
@@ -12,14 +16,22 @@ document.addEventListener("mousemove", moverMouse);
 var cuadrito = document.getElementById("area_de_dibujo");
 var papel = cuadrito.getContext("2d");
 console.log(teclas);
-var xt = 150;
-var yt = 150;
+var inicioX = area_de_dibujo.width;
+var inicioY = area_de_dibujo.height;
+var xt = inicioX/2;
+var yt = inicioY/2;
 var estado;
 var inicio = 0;
 var c = document.getElementById("cajaColor");
-var movimiento = 5;
 
-console.log(c.value);
+
+
+
+function enviarTamano()
+{
+  area_de_dibujo.width = parseInt(anchito.value);
+  area_de_dibujo.height = parseInt(altito.value);
+}
 
 function presionarMouse(evento)
 {
@@ -58,7 +70,7 @@ function dibujarLinea(xi, yi, xf, yf, lienzo)
 function dibujarTeclado(evento)
 {
   console.log(evento);
-  var movimiento = 2;
+  var movimiento = 5;
   switch (evento.keyCode)
   {
     case teclas.UP:
