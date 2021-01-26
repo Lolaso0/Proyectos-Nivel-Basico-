@@ -6,15 +6,48 @@ var teclas = {
 };
 
 document.addEventListener("keydown", dibujarTeclado);
+document.addEventListener("mousedown", presionarMouse);
+document.addEventListener("mouseup", soltarMouse);
+document.addEventListener("mousemove", moverMouse);
 var cuadrito = document.getElementById("area_de_dibujo");
 var papel = cuadrito.getContext("2d");
 console.log(teclas);
-var x = 100;
-var y = 100;
+var x = 150;
+var y = 150;
+var estado;
+var inicio = 0;
+var colorcito = "blue";
+var movimiento = 5;
 
-dibujarLinea("red",x-1 ,y-1, x+1, y+1, papel);
+dibujarLinea(colorcito,x-1 ,y-1, x+1, y+1, papel);
 
+function presionarMouse(evento)
+{
+  x = evento.layerX;
+  y = evento.layerY;
+  estado = 1;
+}
 
+function soltarMouse(evento)
+{
+  x = evento.layerX;
+  y = evento.layerY;
+  estado = 0;
+  dibujarLinea(colorcito, x, y, x, y ,papel);
+}
+
+function moverMouse(evento)
+{
+
+  x = evento.layerX;
+  y = evento.layerY;
+  if(estado == 1)
+  {
+    dibujarLinea(colorcito, x , y, x + movimiento, y + movimiento, papel);
+    x = movimiento + x + 1
+    y = movimiento + y + 1
+  }
+}
 
 function dibujarLinea(colorcito, xi, yi, xf, yf, lienzo)
 {
@@ -29,36 +62,31 @@ function dibujarLinea(colorcito, xi, yi, xf, yf, lienzo)
 
 function dibujarTeclado(evento)
 {
-  var colorcito = "blue";
+  console.log(evento);
   var movimiento = 2;
   switch (evento.keyCode)
   {
     case teclas.UP:
-      console.log("Vamo pa arrrriba");
       dibujarLinea(colorcito, x, y, x, y - movimiento, papel);
       y = y - movimiento;
     break;
 
     case teclas.DOWN:
-      console.log("Vamo pah bajoh");
       dibujarLinea(colorcito, x, y, x, y + movimiento, papel);
       y = y + movimiento;
     break;
 
     case teclas.LEFT:
-      console.log("Vamo pa izquielda");
       dibujarLinea(colorcito, x, y, x - movimiento, y, papel);
       x = x - movimiento;
     break;
 
     case teclas.RIGHT:
-      console.log("Vamo pa delechah");
       dibujarLinea(colorcito, x, y, x + movimiento, y, papel);
       x = x + movimiento;
     break;
 
     default:
-      console.log("Otra TECLA");
     break;
   }
 }
