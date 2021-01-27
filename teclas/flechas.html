@@ -7,8 +7,9 @@
       body
       {
         background-color: #51D1F6;
-        color: green;
+        color: #800080;
         font-family: Helvetica;
+        font-size: 25px;
       }
       canvas
       {
@@ -18,23 +19,42 @@
       {
         color: Black;
       }
+      input
+      {
+        width: 65px;
+        height: 32px;
+      }
+      h2
+      {
+        color: green;
+      }
     </style>
   </head>
   <body>
     <h1><strong>Dibujar con el teclado!</strong></h1>
+    <h2>Instrucciones:<h2>
+      <h3>1) Puedes personalizar las dimensiones de la caja<br/> el color y grosor a tus gusto! <br /><br/> 2) Cuando se cambia el tamaño de la caja se reinicia el dibujo <br/> -->
+         Ten cuidado!!
+         <br/> <br/> 3) Puedes dibujar con el Mouse o tocando la Pantalla <br/>(Para un dibujo preciso utiliza las flechas)
+      </h3>
+
     <p>
       Selecciona el tamaño de la Caja
-      <p> 1) Ancho <input type="text"  id="cajaLienzoAncho" />
+      <p> <strong>1) Ancho</strong> <input type="number" value="600" id="cajaLienzoAncho" />
                     <br /> <br />
-          2) Alto  <input type="text"  id="cajaLienzoAlto" />
-                    <input type="button" value= "Cambiar" id="botonTamano" />
+          <strong>2) Alto</strong>  <input type="number" value="600"  id="cajaLienzoAlto" />
+          <input type="button" value= "Listo" id="botonTamano" />
     </p>
     <p>
-      Selecciona Tu Color
+    <strong>  3) Selecciona Tu Color</strong>
       <input type="color" id="cajaColor" />
     </p>
-    <canvas width= "500" height= "500" id="area_de_dibujo"></canvas>
-    <p>Mueve las flechas del teclado para dibujar</p>
+    <p>
+      <strong>4) Grosor de Linea</strong>
+      <input type="range" value="3" id="grosorLinea" />
+    </p>
+    <canvas width= "600" height= "600" id="area_de_dibujo"></canvas> <br />
+    <input type="button" value= "Reiniciar" id="botonReiniciar" />
     <script src="eventos.js"></script>
   </body>
 </html>

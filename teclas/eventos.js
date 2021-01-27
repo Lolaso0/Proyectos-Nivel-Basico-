@@ -7,8 +7,9 @@ var teclas = {
 var anchito = document.getElementById("cajaLienzoAncho");
 var altito = document.getElementById("cajaLienzoAlto");
 var enviarAnchito = document.getElementById("botonTamano");
+var reiniciar = document.getElementById("botonReiniciar");
 enviarAnchito.addEventListener("click", enviarTamano);
-
+reiniciar.addEventListener("click", enviarTamano);
 document.addEventListener("keydown", dibujarTeclado);
 document.addEventListener("mousedown", presionarMouse);
 document.addEventListener("mouseup", soltarMouse);
@@ -23,9 +24,7 @@ var yt = inicioY/2;
 var estado;
 var inicio = 0;
 var c = document.getElementById("cajaColor");
-
-
-
+var gruesoL = document.getElementById("grosorLinea");
 
 function enviarTamano()
 {
@@ -50,17 +49,17 @@ function moverMouse(evento)
 {
   if(estado == 1)
   {
-    dibujarLinea(x, y, evento.layerX, evento.layerY, papel);
+    dibujarLinea(x, y, evento.layerX, evento.layerY, papel, parseInt(gruesoL.value));
     x = evento.layerX;
     y = evento.layerY;
   }
 }
 
-function dibujarLinea(xi, yi, xf, yf, lienzo)
+function dibujarLinea(xi, yi, xf, yf, lienzo, grueso)
 {
   lienzo.beginPath();
   lienzo.strokeStyle = c.value;
-  lienzo.lineWidth = 3;
+  lienzo.lineWidth = grueso;
   lienzo.moveTo(xi,yi);
   lienzo.lineTo(xf,yf);
   lienzo.stroke();
@@ -70,7 +69,7 @@ function dibujarLinea(xi, yi, xf, yf, lienzo)
 function dibujarTeclado(evento)
 {
   console.log(evento);
-  var movimiento = 5;
+  var movimiento = 7;
   switch (evento.keyCode)
   {
     case teclas.UP:
