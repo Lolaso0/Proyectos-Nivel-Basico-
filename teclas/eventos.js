@@ -73,22 +73,22 @@ function dibujarTeclado(evento)
   switch (evento.keyCode)
   {
     case teclas.UP:
-      dibujarLinea(xt, yt, xt, yt - movimiento, papel);
+      dibujarLinea(xt, yt, xt, yt - movimiento, papel, parseInt(gruesoL.value));
       yt = yt - movimiento;
     break;
 
     case teclas.DOWN:
-      dibujarLinea(xt, yt, xt, yt + movimiento, papel);
+      dibujarLinea(xt, yt, xt, yt + movimiento, papel, parseInt(gruesoL.value));
       yt = yt + movimiento;
     break;
 
     case teclas.LEFT:
-      dibujarLinea(xt, yt, xt - movimiento, yt, papel);
+      dibujarLinea(xt, yt, xt - movimiento, yt, papel, parseInt(gruesoL.value));
       xt = xt - movimiento;
     break;
 
     case teclas.RIGHT:
-      dibujarLinea(xt, yt, xt + movimiento, yt, papel);
+      dibujarLinea(xt, yt, xt + movimiento, yt, papel, parseInt(gruesoL.value));
       xt = xt + movimiento;
     break;
 
