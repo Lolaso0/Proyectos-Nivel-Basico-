@@ -4,6 +4,15 @@ var vp = document.getElementById("villaplatzi");
 var papel = vp.getContext("2d");
 var mapa = "tile.png";
 
+//boton reload//
+var boton = document.getElementById("botoncito");
+boton.addEventListener("click", recargar);
+
+function recargar()
+{
+  location.reload();
+}
+
 var vaca = {
   url: "vaca.png",
   cargaOK: false
@@ -37,9 +46,10 @@ var wasd = {
 }
 
 //cantidad de animales
-var cantidadVacas = aleatorio(1, 5);
+
 var cantidadCerdos = aleatorio(1, 5);
 var cantidadPollos = aleatorio(1, 5);
+var cantidadVacas = aleatorio(1, 5);
 
 //evento de carga
 fondo.imagen = new Image();
@@ -68,132 +78,141 @@ function cargarFondo()
 {
   fondo.cargaOK = true;
   dibujar();
-  var estado = 1;
 }
 function cargarVacas()
 {
   vaca.cargaOK = true;
-  dibujar();
-  var estado = 1;
+  mantenerPosicion();
 }
 function cargarCerdos()
 {
-  vaca.cargaOK = true;
-  dibujar();
-  var estado = 1;
+  cerdo.cargaOK = true;
+  mantenerPosicion();
 }
 function cargarPollos()
 {
   pollo.cargaOK = true;
-  dibujar();
-  var estado = 1;
+  mantenerPosicion();
 }
 function cargarPersona()
 {
   persona.cargaOK = true;
   dibujar();
-  var estado = 1;
 }
 
 var xPersona = 400;
 var yPersona = 400;
-
-
-
-var polloX;
-var polloY;
-
-var cerdoX;
-var cerdoY;
-var miau = 1;
-
-var estado = 1;
+var xVaca = new Array();
+var yVaca = new Array();
+var xCerdo = new Array();
+var yCerdo = new Array();
+var xPollo = new Array();
+var yPollo = new Array();
 
 //Teclas del personaje
-var movimiento = 15;
+var movimiento = 20;
 document.addEventListener("keydown", teclas)
 function teclas(evento)
 {
   switch(evento.keyCode)
   {
     case wasd.w:
-      yPersona = yPersona - movimiento;
-      estado = 0;
-      dibujar(xPersona, yPersona);
+    yPersona = yPersona - movimiento;
+    dibujar();
+    break;
+
+    case wasd.s:
+    yPersona = yPersona + movimiento;
+    dibujar();
+    break;
+
+    case wasd.a:
+    xPersona = xPersona - movimiento;
+    dibujar();
+    break;
+
+    case wasd.d:
+    xPersona = xPersona + movimiento;
+    dibujar();
+    break;
   }
 }
 
-//dibujar
-function dibujar(xPersona, yPersona)
+//mantener Posicon generar numeros de posicion
+function mantenerPosicion()
 {
-  if(estado < 3)
+  if(vaca.cargaOK)
   {
-  if(fondo.cargaOK == true)
-  {
-    if(estado == 1)
+    for(var i=0; i < cantidadVacas; i++)
     {
-      papel.drawImage(fondo.imagen, 0, 0);
+      var x = aleatorio(0, 25);
+      var y = aleatorio(0, 25);
+      var x = x * 30;
+      var y = y * 20;
+      xVaca[i] = x;
+      yVaca[i] = y;
     }
+    if(cerdo.cargaOK)
+    {
+      for(var i=0; i < cantidadCerdos; i++)
+      {
+        var x = aleatorio(0, 25);
+        var y = aleatorio(0, 25);
+        var x = x * 30;
+        var y = y * 20;
+        xCerdo[i] = x;
+        yCerdo[i] = y;
+      }
+    }
+    if(pollo.cargaOK)
+    {
+      for(var i=0; i < cantidadPollos; i++)
+      {
+        var x = aleatorio(0, 25);
+        var y = aleatorio(0, 25);
+        var x = x * 30;
+        var y = y * 20;
+        xPollo[i] = x;
+        yPollo[i] = y;
+      }
+    }
+  }
+  dibujar();
+}
+
+//dibujo
+function dibujar()
+{
+  if(fondo.cargaOK)
+  {
+    papel.drawImage(fondo.imagen, 0, 0);
   }
   if(vaca.cargaOK)
   {
-    for(var v=0; v < cantidadVacas; v++)
+    for(var i=0;i < cantidadVacas;i++)
     {
-      if(estado == 1)
-      {
-        var vx = aleatorio(0, 10) * 60;
-        var vy = aleatorio(0, 10) * 60;
-        var vacaX = vx;
-        var vacaY = vy;
-        papel.drawImage(vaca.imagen, vacaX, vacaY);
-      }
-      papel.drawImage(vaca.imagen, vacaX, vacaY);
+      papel.drawImage(vaca.imagen, xVaca[i], yVaca[i]);
     }
   }
-  if(cerdo.cargaOK = true)
+  if(cerdo.cargaOK)
   {
-    for(var c=0; c < cantidadCerdos; c++)
+    for(var i=0;i < cantidadCerdos;i++)
     {
-      if(estado == 1)
-      {
-        var cx = aleatorio(0, 10) * 60;
-        var cy = aleatorio(0, 10) * 60
-        estado = 1;
-        var cerdoX = cx;
-        var cerdoY = cy;
-        papel.drawImage(cerdo.imagen, cerdoX, cerdoY);
-      }
+      papel.drawImage(cerdo.imagen, xCerdo[i], yCerdo[i]);
     }
+  }
+  if(pollo.cargaOK)
+  {
+    for(var i=0;i < cantidadPollos;i++)
+    {
+      papel.drawImage(pollo.imagen, xPollo[i], yPollo[i]);
+    }
+  }
+  if(persona.cargaOK)
+  {
+    papel.drawImage(persona.imagen, xPersona, yPersona);
   }
 }
-  if(pollo.cargaOK = true)
-  {
-    for(var p=0; p < cantidadCerdos; p++)
-    {
-      if(estado == 1)
-      {
-        var px = aleatorio(0, 10) * 60;
-        var py = aleatorio(0, 10) * 60
-        estado = 1;
-        var polloX = px;
-        var polloY = py;
-        papel.drawImage(pollo.imagen, polloX, polloY);
-      }
-      papel.drawImage(pollo.imagen, polloX, polloY);
-    }
-  }
-  if(persona.cargaOK = true)
-  {
-    var x = xPersona;
-    var y = yPersona;
-    papel.drawImage(persona.imagen, x, y);
-    papel.drawImage(persona.imagen, x, y);
-  }
-
-}
-
-
-
 
 
  //Aleatorio
