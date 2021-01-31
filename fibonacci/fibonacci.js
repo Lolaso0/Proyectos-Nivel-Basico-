@@ -11,3 +11,4 @@ for(i=0;i<cantidad;i++)
     document.write(+ y + "\n,");
     document.write(+ x + "\n,");
   }
+  document.write("...");
