@@ -33,10 +33,18 @@ Aqui se subiran los proyectos del curso para que los prueben!!
 
 - **[Dale Click Aqui para Ingresar](https://lolaso0.github.io/Proyectos-Nivel-Basico-/teclas/flechas.html)**.
 
-# Proyecto **Extra**: Serie Numerica Fibonacci
+# Proyecto **Extra**: Serie Numerica Fibonacci 🔢
 - Escribe la cantidad de numero **Fibonacci** que deseas y te saldra la serie de numeros!
 - **[Dale Click Aqui para Ingresar](https://lolaso0.github.io/Proyectos-Nivel-Basico-/fibonacci/fibonacci.html)**.
 # Proyecto 3: Villa Lechuga **(Animales y MAS!)** 🐮
 - Acabe el **3er Proyecto**, en este proyecto puedes mover a un personaje con las flechas y tener un numero al azar de animales!
 - Mueve al personaje con las teclas **W, A, S, D**  
 - **[Dale Click Aqui para Ingresar](https://lolaso0.github.io/Proyectos-Nivel-Basico-/villaplatzi/villa.html)**
+# Proyecto **Extra 2**: FizzBuzz 🐝
+- Es una prueba de trabajo muy tipica utilizada a la hora de buscar empleo
+- Cuando el numero es multiplo de 3 **Fizz**, de 5 **Buzz** y de ambos **FizzBuzz**
+- **[Dale Click Aqui para Ingresar](https://lolaso0.github.io/Proyectos-Nivel-Basico-/fizzbuzz/modulo.html)**
+
+# Proyecto 4: **Pakidex!!** 🌈
+- Muestra 3 **Pakimones**, con sus estadisticas, solo es una prueba de como usar las **Clases y Arrays**
+- **[Dale Click Aqui para Ingresar](https://lolaso0.github.io/pakiman/pakiman.html)**
