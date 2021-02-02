@@ -48,4 +48,4 @@ Aqui se subiran los proyectos del curso para que los prueben!!
 
 # Proyecto 4: **Pakidex!!** 🌈
 - Muestra 3 **Pakimones**, con sus estadisticas, solo es una prueba de como usar las **Clases y Arrays**
-- **[Dale Click Aqui para Ingresar](https://lolaso0.github.io/pakiman/pakiman.html)**
+- **[Dale Click Aqui para Ingresar](https://lolaso0.github.io/Proyectos-Nivel-Basico-/pakiman/pakiman.html)**
