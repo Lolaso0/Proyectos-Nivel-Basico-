@@ -41,6 +41,7 @@ Aqui se subiran los proyectos del curso para que los prueben!!
 - Acabe el **3er Proyecto**, en este proyecto puedes mover a un personaje con las flechas y tener un numero al azar de animales!
 - Mueve al personaje con las teclas **W, A, S, D**  
 - **[Dale Click Aqui para Ingresar](https://lolaso0.github.io/Proyectos-Nivel-Basico-/villaplatzi/villa.html)**
+
 # Proyecto **Extra 2**: FizzBuzz 🐝
 - Es una prueba de trabajo muy tipica utilizada a la hora de buscar empleo
 - Cuando el numero es multiplo de 3 **Fizz**, de 5 **Buzz** y de ambos **FizzBuzz**
