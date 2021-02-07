@@ -1,24 +1,47 @@
+//Imagenes de billetes
+var imagenes = [];
+imagenes["dolar100"] = "dolar100.png";
+imagenes["dolar50"] = "dolar50.png";
+imagenes["dolar20"] = "dolar20.png";
+imagenes["dolar10"] = "dolar10.png";
+imagenes["dolar5"] = "dolar5.png";
+
+
 //Clase Billete
 class Billete
 {
-  constructor(v,c)
+  constructor(n,v,c)
   {
+    this.nombre = n;
     this.valor = v;
     this.cantidad = c;
+    this.imagen = new Image;
+    this.imagen.url = imagenes[this.nombre];
+  }
+  mostrar()
+  {
+    document.body.appendChild(this.imagen);
   }
 }
+
+
 
 //Valores
 var caja = [];
 var entregado = [];
-caja.push( new Billete(100, 5) );
-caja.push( new Billete(50, 20) );
-caja.push( new Billete(20, 30) );
-caja.push( new Billete(10, 20) );
-caja.push( new Billete(5, 5) );
+caja.push( new Billete("dolar100", 100, 5) );
+caja.push( new Billete("dolar50", 50, 20) );
+caja.push( new Billete("dolar20", 20, 30) );
+caja.push( new Billete("dolar10", 10, 20) );
+caja.push( new Billete("dolar5", 5, 5) );
 var dinero = 0;
 var div = 0;
 var papeles = 0;
+
+for(c of caja)
+{
+  c.mostrar();
+}
 
 //Evento de CLick
 var b = document.getElementById("extraer");
