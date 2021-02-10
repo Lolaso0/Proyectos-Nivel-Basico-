@@ -4,14 +4,41 @@
     <meta charset="utf-8">
     <title>Cajero Automatico</title>
     <style>
+      #xd
+      {
+        text-align: center;
+        color: blue;
+        font-size: 20px;
+      }
       body
       {
-        background-color: black;
+        background-color: #FFA420;
         color: white;
+        font-family: Helvetica;
+        text-align: center;
+      }
+      #actual
+      {
+        font-size: 30px;
+        color: green;
+      }
+      h1
+      {
+        Color: Black;
+        font-size: 45px;
       }
     </style>
   </head>
   <body>
+    <h1><strong> Cajero Automatico </strong></h1>
+    <p id="xd">
+      Puedes retirar el dinero que quieras!!<br/><br/>
+      1. Introduce el monto<br/>
+      2. Dale a extraer<br/>
+      <br/><br/>
+      Recuerda que el cajero se ira vaciando!!
+    </p>
+    <p id="actual"> Dinero Actual del ATM: <p/>
     <p>
       <img src="cajero.gif" />
     </p>
@@ -20,7 +47,9 @@
       <input type="button" value="Extraer" id="extraer" />
     </p>
     <p id="resultado"><p/>
+
     <script src="atm.js">
     </script>
   </body>
+
 </html>

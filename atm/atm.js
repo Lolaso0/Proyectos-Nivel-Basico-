@@ -1,47 +1,40 @@
 //Imagenes de billetes
 var imagenes = [];
-imagenes["dolar100"] = "dolar100.png";
-imagenes["dolar50"] = "dolar50.png";
-imagenes["dolar20"] = "dolar20.png";
-imagenes["dolar10"] = "dolar10.png";
-imagenes["dolar5"] = "dolar5.png";
-
+imagenes["dolar100"] = "./img/dolar100.png";
+imagenes["dolar50"] = "./img/dolar50.png";
+imagenes["dolar20"] = "./img/dolar20.png";
+imagenes["dolar10"] = "./img/dolar10.png";
+imagenes["dolar5"] = "./img/dolar5.png";
+imagenes["dolar1"] = "./img/dolar1.png";
 
 //Clase Billete
 class Billete
 {
-  constructor(n,v,c)
+  constructor(v, c, n)
   {
     this.nombre = n;
     this.valor = v;
     this.cantidad = c;
-    this.imagen = new Image;
+    this.imagen = new Image();
     this.imagen.url = imagenes[this.nombre];
-  }
-  mostrar()
-  {
-    document.body.appendChild(this.imagen);
   }
 }
 
 
 
-//Valores
+//Valores y dinero del cajero
 var caja = [];
 var entregado = [];
-caja.push( new Billete("dolar100", 100, 5) );
-caja.push( new Billete("dolar50", 50, 20) );
-caja.push( new Billete("dolar20", 20, 30) );
-caja.push( new Billete("dolar10", 10, 20) );
-caja.push( new Billete("dolar5", 5, 5) );
+caja.push( new Billete(100, 10, "dolar100") );
+caja.push( new Billete(50, 20, "dolar50") );
+caja.push( new Billete(20, 30, "dolar20") );
+caja.push( new Billete(10, 40, "dolar10") );
+caja.push( new Billete(5, 50, "dolar5") );
+caja.push( new Billete(1, 100, "dolar1"));
 var dinero = 0;
 var div = 0;
 var papeles = 0;
-
-for(c of caja)
-{
-  c.mostrar();
-}
+var suma = 0;
 
 //Evento de CLick
 var b = document.getElementById("extraer");
@@ -49,6 +42,14 @@ b.addEventListener("click", entregarDinero);
 
 //Parrafo para escribir
 var resultado = document.getElementById("resultado");
+var actual = document.getElementById("actual");
+
+//Valor de inicio
+for(ac of caja)
+{
+  suma += (ac.valor * ac.cantidad);
+}
+actual.innerHTML = "Dinero Actual del ATM: " + suma + "$";
 
 //Funcionamiento
 
@@ -73,14 +74,17 @@ function entregarDinero()
         papeles = div;
       }
       //Entrega y resta los billetes a la siguiente iteracion
-      entregado.push( new Billete(bi.valor, papeles) );
+      entregado.push( new Billete(bi.valor, papeles, bi.nombre) );
       dinero = dinero - (bi.valor * papeles);
+      //Actualiza la caja
+      bi.cantidad = bi.cantidad - papeles;
     }
+    console.log(caja);
   }
   //Saber si el cajero se quedo vacio
   if(dinero > 0)
   {
-    resultado.innerHTML = "Soy un malo, he sido malo y no puedo darte esa cantidad";
+    resultado.innerHTML = "<strong>No Cuento con esa cantidad</strong>";
   }
   else
   {
@@ -90,8 +94,23 @@ function entregarDinero()
       if(e.cantidad > 0)
       {
         //Mostrar Billetes
-        resultado.innerHTML += e.cantidad + " billetes de $" + e.valor + "<br />";
+        for(i = 0; i < e.cantidad ; i++)
+        {
+          resultado.innerHTML += "<img src=" + e.imagen.url + ">";
+        }
+      }
+      if(e.cantidad = 0)
+      {
+        resultado.innerHTML = "";
       }
     }
+    //Linea de separacion
+    resultado.innerHTML += "<hr />"
   }
+  var suma = 0;
+  for(s of caja)
+  {
+    suma += (s.valor * s.cantidad);
+  }
+  actual.innerHTML = "Dinero Actual del ATM: " + suma + "$";
 }
