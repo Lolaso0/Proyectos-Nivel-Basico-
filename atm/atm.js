@@ -25,16 +25,17 @@ class Billete
 //Valores y dinero del cajero
 var caja = [];
 var entregado = [];
-caja.push( new Billete(100, 10, "dolar100") );
-caja.push( new Billete(50, 20, "dolar50") );
-caja.push( new Billete(20, 30, "dolar20") );
-caja.push( new Billete(10, 40, "dolar10") );
-caja.push( new Billete(5, 50, "dolar5") );
-caja.push( new Billete(1, 100, "dolar1"));
+caja.push( new Billete(100, 100, "dolar100") );
+caja.push( new Billete(50, 150, "dolar50") );
+caja.push( new Billete(20, 200, "dolar20") );
+caja.push( new Billete(10, 300, "dolar10") );
+caja.push( new Billete(5, 500, "dolar5") );
+caja.push( new Billete(1, 1000, "dolar1"));
 var dinero = 0;
 var div = 0;
 var papeles = 0;
 var suma = 0;
+var sesionTotal = 0;
 
 //Evento de CLick
 var b = document.getElementById("extraer");
@@ -43,6 +44,7 @@ b.addEventListener("click", entregarDinero);
 //Parrafo para escribir
 var resultado = document.getElementById("resultado");
 var actual = document.getElementById("actual");
+var sesion = document.getElementById("sesion");
 
 //Valor de inicio
 for(ac of caja)
@@ -52,7 +54,7 @@ for(ac of caja)
 actual.innerHTML = "Dinero Actual del ATM: " + suma + "$";
 
 //Funcionamiento
-
+  var p = 0;
 function entregarDinero()
 {
   var t = document.getElementById("dinero");
@@ -82,6 +84,7 @@ function entregarDinero()
     console.log(caja);
   }
   //Saber si el cajero se quedo vacio
+  var z = 0;
   if(dinero > 0)
   {
     resultado.innerHTML = "<strong>No Cuento con esa cantidad</strong>";
@@ -98,7 +101,20 @@ function entregarDinero()
         {
           resultado.innerHTML += "<img src=" + e.imagen.url + ">";
         }
+        //Mostrar sesion
+        if(z < 1)
+        {
+         for(h of entregado)
+          {
+            sesionTotal += (h.valor * h.cantidad);
+          }
+            p = p+1;
+            sesion.innerHTML += "\nDinero de Sesion " + p + ": " + sesionTotal + "<br />";
+            sesionTotal = 0;
+        }
+        z = z+1;
       }
+      
       if(e.cantidad = 0)
       {
         resultado.innerHTML = "";
@@ -108,6 +124,8 @@ function entregarDinero()
     resultado.innerHTML += "<hr />"
   }
   var suma = 0;
+
+  //Dinero actual ATM
   for(s of caja)
   {
     suma += (s.valor * s.cantidad);
