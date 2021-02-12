@@ -96,11 +96,6 @@ function entregarDinero()
       //No mostrar cuando son 0
       if(e.cantidad > 0)
       {
-        //Mostrar Billetes
-        for(i = 0; i < e.cantidad ; i++)
-        {
-          resultado.innerHTML += "<img src=" + e.imagen.url + ">";
-        }
         //Mostrar sesion
         if(z < 1)
         {
@@ -108,13 +103,21 @@ function entregarDinero()
           {
             sesionTotal += (h.valor * h.cantidad);
           }
+
             p = p+1;
+            resultado.innerHTML += "Sesion " + p + "<br/>" + "<br/>";
             sesion.innerHTML += "\nDinero de Sesion " + p + ": " + sesionTotal + "<br />";
             sesionTotal = 0;
         }
         z = z+1;
+        //Mostrar Billetes
+        for(i = 0; i < e.cantidad ; i++)
+        {
+          resultado.innerHTML += "<img src=" + e.imagen.url + ">";
+        }
+
       }
-      
+
       if(e.cantidad = 0)
       {
         resultado.innerHTML = "";
